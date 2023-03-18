@@ -7,12 +7,13 @@ const Section = styled.section`
   align-items: center;
   justify-content: space-between;
 `
-const Login = ()=>{
+const Login = (props)=>{
+  const { changeFormData, formDataLogin } = props
   return(<Section>
       <header>
         <h2>Login</h2>
       </header>
-      <FormLogin />
+      <FormLogin changeFormData={changeFormData} formDataLogin={formDataLogin} />
     </Section>
   )
 }

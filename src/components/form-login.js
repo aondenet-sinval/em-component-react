@@ -1,31 +1,21 @@
-import React, { useState } from 'react'
+import React from 'react'
 import RowFormText from './form-parts/row-form-text'
 import RowFormPassword from './form-parts/row-form-password'
 import InputReset from './form-parts/input-reset'
 import InputSubmit from './form-parts/input-submit'
-const FormLogin = ()=>{
-  const [user, setUser ]= useState({})
-  const enviar = ()=> {}
-  const changeFormUser = (e)=>{
-    const name = e.target.name
-    const value = e.target.value
-    if (name === 'usernameLogin') {
-    user.telefone = value
-    }
-    if (name === 'passwordLogin') {
-      user.endereco = value
-    }
-    if ( user.username && user.password) {
-      setUser(user)
-      console.log('user ', user);
-    }
+const FormLogin = (props)=>{
+  const { changeFormData, formDataLogin } = props
+  const enviar = (formData)=> {/*enviar pro backend*/}
+  // Validar para esse form
+  if (formDataLogin.usernameLogin && formDataLogin.passwordLogin) {
+    console.log('formData login ', formDataLogin);
   }
   return(<form>
     <fieldset>
     <legend>Digite seu Login</legend>
-    <RowFormText changes={changeFormUser}
+    <RowFormText changes={changeFormData}
       id="usernameLogin" labelValue="Username" />
-    <RowFormPassword changes={changeFormUser}
+    <RowFormPassword changes={changeFormData}
       id="passwordLogin" labelValue="Senha" />
     </fieldset>
     <InputSubmit value="Enviar" onClick={enviar} />

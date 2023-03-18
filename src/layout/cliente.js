@@ -7,12 +7,13 @@ const Section = styled.section`
   align-items: center;
   justify-content: space-between;
 `
-const Cliente = ()=>{
+const Cliente = (props)=>{
+  const { changeFormData, formDataCliente } = props
   return(<Section>
       <header>
         <h2>Cadastro de Clientes</h2>
       </header>
-      <FormCliente />
+      <FormCliente changeFormData={changeFormData} formDataCliente={formDataCliente} />
     </Section>
   )
 }

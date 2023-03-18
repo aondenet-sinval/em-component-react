@@ -7,12 +7,14 @@ const Section = styled.section`
   align-items: center;
   justify-content: space-between;
 `
-const User = ()=>{
+const User = (props)=>{
+  const { changeFormData, formDataUser, resetFormData} = props
   return(<Section>
       <header>
         <h2>Cadastro de Usuários</h2>
       </header>
-      <FormUser />
+      <FormUser changeFormData={changeFormData} formDataUser={formDataUser}
+       resetFormData={resetFormData}/>
     </Section>
   )
 }

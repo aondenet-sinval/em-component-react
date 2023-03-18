@@ -1,36 +1,23 @@
-import React, { useState } from 'react'
+import React from 'react'
 import RowFormPassword from './form-parts/row-form-password'
 import RowFormText from './form-parts/row-form-text'
 import InputReset from './form-parts/input-reset'
 import InputSubmit from './form-parts/input-submit'
-const FormUser = ()=>{
-  const [user, setUser ]= useState({})
-  const enviar = ()=> {}
-  const changeFormUser = (e)=>{
-    const name = e.target.name
-    const value = e.target.value
-    if (name === 'userEmail') {
-      user.name = value
+const FormUser = (props)=>{
+  const { changeFormData, formDataUser } = props
+  const enviar = (formData)=> {/*enviar pro backend*/}
+    // Validar para esse form
+    if (formDataUser.userEmail && formDataUser.userName && formDataUser.userPassword) {
+      console.log('formData User ', formDataUser);
     }
-    if (name === 'userName') {
-    user.telefone = value
-    }
-    if (name === 'userPassword') {
-      user.endereco = value
-    }
-    if ((user.email && user.username) && (user.password)) {
-      setUser(user)
-      console.log('user ', user);
-    }
-  }
   return(<form>
     <fieldset>
     <legend>Dados do novo usuário</legend>
-    <RowFormText changes={changeFormUser}
+    <RowFormText changes={changeFormData}
       id="userEmail" labelValue="Email" />
-    <RowFormText changes={changeFormUser}
+    <RowFormText changes={changeFormData}
       id="userName" labelValue="Nome" />
-    <RowFormPassword changes={changeFormUser}
+    <RowFormPassword changes={changeFormData}
       id="userPassword" labelValue="Senha" />
     </fieldset>
     <InputSubmit value="Enviar" enviar={enviar} />

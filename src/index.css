@@ -4,3 +4,41 @@ body {
   font-family: sans-serif;
   font-size: 20px;
 }
+form{
+  background-color: #CC9;
+  padding: 10px;
+  border-radius: 10px;
+}
+@keyframes leftShow {
+  0% {left: -200px;}
+  100% {left: 0px;}
+}
+@keyframes leftHide {
+  0% {left: 0px;}
+  100% {left: -200px;}
+}
+.sideMenuHide{
+  position: absolute;
+  top: 45px;
+  width: 180px;
+  left: -200px;
+  background-color: #CC9;
+  animation-name: leftHide;
+  animation-duration: 0.5s;
+}
+.sideMenuHideFixed{
+  position: absolute;
+  top: 45px;
+  width: 180px;
+  left: -200px;
+  background-color: #CC9;
+}
+.sideMenuShow{
+  position: absolute;
+  top: 45px;
+  left: 0px;
+  width: 180px;
+  background-color: #CC9;
+  animation-name: leftShow;
+  animation-duration: 1s;
+}
